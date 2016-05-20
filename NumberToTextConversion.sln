@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumberToTextConversionTests", "NumberToTextConversion\NumberToTextConversionTests.csproj", "{A22B3A6D-ED8F-4788-9DA9-06A7E4558996}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumberTextConverters", "TextConvertor\NumberTextConverters.csproj", "{4E75A691-7335-42F4-AADC-E67525070376}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A22B3A6D-ED8F-4788-9DA9-06A7E4558996}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A22B3A6D-ED8F-4788-9DA9-06A7E4558996}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A22B3A6D-ED8F-4788-9DA9-06A7E4558996}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A22B3A6D-ED8F-4788-9DA9-06A7E4558996}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E75A691-7335-42F4-AADC-E67525070376}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E75A691-7335-42F4-AADC-E67525070376}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E75A691-7335-42F4-AADC-E67525070376}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E75A691-7335-42F4-AADC-E67525070376}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
