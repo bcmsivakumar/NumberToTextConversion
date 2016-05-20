@@ -8,6 +8,15 @@ namespace NumberToTextConversionTests
     public class NumberToTextTest
     {
         [TestMethod]
+        public void NumberToText_SingleDigit_Zero()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(0);
+
+            Assert.AreEqual("Zero", numberInText);
+        }
+
+        [TestMethod]
         public void NumberToText_SingleDigit_One()
         {
             NumberTextConverter converter = new NumberTextConverter();
@@ -15,5 +24,7 @@ namespace NumberToTextConversionTests
 
             Assert.AreEqual("One", numberInText);
         }
+
+        
     }
 }

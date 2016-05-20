@@ -10,7 +10,14 @@ namespace NumberTextConverters
     {
         public string ConvertToText(int number)
         {
-            return "One";
+            string numberText = string.Empty;
+
+            if (number == 0)
+                numberText = "Zero";
+            if (number == 1)
+                numberText = "One";
+
+            return numberText;
         }
     }
 }
