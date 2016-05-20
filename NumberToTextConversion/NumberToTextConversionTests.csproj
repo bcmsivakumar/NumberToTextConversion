@@ -54,7 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TextConvertor\NumberTextConverters.csproj">
+    <ProjectReference Include="..\TextConverter\NumberTextConverters.csproj">
       <Project>{4e75a691-7335-42f4-aadc-e67525070376}</Project>
       <Name>NumberTextConverters</Name>
     </ProjectReference>
