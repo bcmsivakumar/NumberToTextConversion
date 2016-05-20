@@ -25,6 +25,15 @@ namespace NumberToTextConversionTests
             Assert.AreEqual("One", numberInText);
         }
 
-        
+        [TestMethod]
+        public void NumberToText_SingleDigit_Nine()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(9);
+
+            Assert.AreEqual("Nine", numberInText);
+        }
+
+
     }
 }
