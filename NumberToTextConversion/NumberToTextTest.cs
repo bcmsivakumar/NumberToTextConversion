@@ -34,6 +34,40 @@ namespace NumberToTextConversionTests
             Assert.AreEqual("Nine", numberInText);
         }
 
+        [TestMethod]
+        public void NumberToText_DoubleDigit_10()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(10);
 
+            Assert.AreEqual("Ten", numberInText);
+        }
+
+        [TestMethod]
+        public void NumberToText_DoubleDigit_11()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(11);
+
+            Assert.AreEqual("Eleven", numberInText);
+        }
+
+        [TestMethod]
+        public void NumberToText_DoubleDigit_20()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(20);
+
+            Assert.AreEqual("Twenty", numberInText);
+        }
+
+        [TestMethod]
+        public void NumberToText_DoubleDigit_21()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(21);
+
+            Assert.AreEqual("Twenty One", numberInText);
+        }
     }
 }
