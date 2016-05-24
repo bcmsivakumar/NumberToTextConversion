@@ -32,16 +32,34 @@ namespace NumberTextConverters
             numbersText.Add(17, "Seventeen");
             numbersText.Add(18, "Eighteen");
             numbersText.Add(19, "Nineteen");
+
             numbersText.Add(20, "Twenty");
+            numbersText.Add(30, "Thirty");
+            numbersText.Add(40, "Fourty");
+            numbersText.Add(50, "Fifty");
+            numbersText.Add(60, "Sixty");
+            numbersText.Add(70, "Seventy");
+            numbersText.Add(80, "Eighty");
+            numbersText.Add(90, "Ninety");
+            numbersText.Add(100, "Hundred");
         }
         public string ConvertToText(int number)
         {
             string numberText = string.Empty;
+            var numberString = number.ToString();
             Queue<int> numberCollection = new Queue<int>();
-            if (number > 20)
+
+            if (numberString.Length == 2 && number > 20)
             {
-                numberCollection.Enqueue(20);
-                numberCollection.Enqueue(number - 20);
+                var charArray = numberString.ToCharArray();
+                var twoDigitNumber = Convert.ToInt32(charArray[0].ToString() + "0");
+                var singleDigitNumber = Convert.ToInt32(charArray[1].ToString());
+
+                numberCollection.Enqueue(twoDigitNumber);
+                if (singleDigitNumber > 0)
+                {
+                    numberCollection.Enqueue(singleDigitNumber);
+                }
             }
             else
             {
