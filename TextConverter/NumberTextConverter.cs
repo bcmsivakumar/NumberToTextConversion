@@ -53,9 +53,26 @@ namespace NumberTextConverters
             return ConvertToWord(longNumber);
         }
 
+        public string CurrencyInWord(decimal number)
+        {
+            if (number == 0)
+                return oneDigitText[0];
+            var parts = number.ToString().Split('.');
+            var word = string.Empty;
+
+            word = ConvertToWord(Convert.ToInt64(parts[0])).Trim() + " rupees " + (parts.Length == 2 ? ("and " + ConvertToWord(Convert.ToInt64(parts[1].Substring(0,2))).ToLower().Trim() + " paisa") : "");
+
+            return word.Trim();
+        }
+
         public string ConvertToWord(long number, bool isRecursive=false)
         {
             string numberText = string.Empty;
+            if (number < 0)
+            {
+                numberText = "Minus ";
+                number = number * (-1);
+            }
 
             if (number > 999999999999 && number <= 9999999999999999)
             {

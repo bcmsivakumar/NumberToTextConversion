@@ -495,5 +495,50 @@ namespace NumberToTextConversionTests
 
             Assert.AreEqual("One thousand trillion", numberInText);
         }
+        
+        [TestMethod]
+        public void NumberToText_Minus_1000000000000000()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(-1000000000000000);
+
+            Assert.AreEqual("Minus one thousand trillion", numberInText);
+        }
+
+        [TestMethod]
+        public void NumberToText_Minus_10point26()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.CurrencyInWord(-10.26M);
+
+            Assert.AreEqual("Minus ten rupees and twenty six paisa", numberInText);
+        }
+
+        [TestMethod]
+        public void NumberToText_Minus_10()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.CurrencyInWord(-10M);
+
+            Assert.AreEqual("Minus ten rupees", numberInText);
+        }
+
+        [TestMethod]
+        public void NumberToText_Minus_Zero()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.CurrencyInWord(-0M);
+
+            Assert.AreEqual("Zero", numberInText);
+        }
+
+        [TestMethod]
+        public void NumberToText_Plus_Zero()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.CurrencyInWord(0M);
+
+            Assert.AreEqual("Zero", numberInText);
+        }
     }
 }
