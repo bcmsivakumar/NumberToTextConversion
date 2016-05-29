@@ -57,6 +57,23 @@ namespace NumberTextConverters
         {
             string numberText = string.Empty;
 
+            if (number > 999999 && number <= 9999999 && numberText == string.Empty)
+            {
+                int temp = (int)(number / 1000000);
+                numberText += oneDigitText[temp] + " million ";
+                number = number % 1000000;
+            }
+            else
+            {
+                if (number > 999999 && number <= 9999999)
+                {
+                    int temp = (int)(number / 100000);
+                    numberText += ConvertToWord(temp, numberText.Length != 0) + (temp == 1 ? " lakh " : " lakhs ");
+                    number = number % 100000;
+                }
+
+            }
+
             if (number > 99999 && number <= 999999)
             {
                 int temp = (int)(number / 100000);
@@ -103,11 +120,7 @@ namespace NumberTextConverters
                 {
                     caseNumber = caseNumber.ToLower();
                 }
-                numberText += (caseNumber) + " ";
-                if (isRecursive)
-                {
-                    numberText = numberText.ToLower();
-                }
+                numberText += (caseNumber) + " ";               
                 number = number % 10;
             }
 
@@ -115,7 +128,12 @@ namespace NumberTextConverters
             {
                 if (number >= 0 && number < 20)
                 {
-                    numberText += (numberText.Length == 0 ? oneDigitText[(int)number] : oneDigitText[(int)number].ToLower());
+                    var caseNumber = numberText.Length == 0 ? oneDigitText[(int)number] : oneDigitText[(int)number].ToLower();
+                    if (isRecursive)
+                    {
+                        caseNumber = caseNumber.ToLower();
+                    }
+                    numberText += (caseNumber);
                 }
             }
             

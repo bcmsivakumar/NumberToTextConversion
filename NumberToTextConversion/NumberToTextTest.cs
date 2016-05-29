@@ -233,5 +233,42 @@ namespace NumberToTextConversionTests
             Assert.AreEqual("Nine lakhs ninety nine thousand nine hundred ninety nine", numberInText);
         }
 
+        [TestMethod]
+        public void NumberToText_1000000()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(1000000);
+
+            Assert.AreEqual("One million", numberInText);
+        }
+
+        [TestMethod]
+        public void NumberToText_1000001()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(1000001);
+
+            Assert.AreEqual("One million one", numberInText);
+        }
+
+        [TestMethod]
+        public void NumberToText_9900000()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(9900000);
+
+            Assert.AreEqual("Nine million nine lakhs", numberInText);
+        }
+
+        [TestMethod]
+        public void NumberToText_DoubleDigit_9999999()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(9999999);
+
+            Assert.AreEqual("Nine million nine lakhs ninety nine thousand nine hundred ninety nine", numberInText);
+        }
+
+
     }
 }
