@@ -114,5 +114,24 @@ namespace NumberToTextConversionTests
 
             Assert.AreEqual("One Hundred", numberInText);
         }
+
+        [TestMethod]
+        public void NumberToText_101()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(101);
+
+            Assert.AreEqual("One Hundred One", numberInText);
+        }
+
+        [TestMethod]
+        public void NumberToText_999()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(999);
+
+            Assert.AreEqual("Nine Hundred Ninety Nine", numberInText);
+        }
+
     }
 }
