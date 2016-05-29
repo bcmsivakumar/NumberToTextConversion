@@ -57,6 +57,21 @@ namespace NumberTextConverters
         {
             string numberText = string.Empty;
 
+            if (number > 99999999 && number <= 999999999)
+            {
+                int temp = (int)(number / 10000000);
+                if (temp > 19)
+                {
+                    numberText += ConvertToWord(temp, numberText.Length != 0) + " crore ";
+                }
+                else
+                {
+                    var caseNumber = (numberText.Length == 0 ? oneDigitText[temp] : oneDigitText[temp].ToLower());
+                    numberText += caseNumber + " crore ";
+                }
+                number = number % 10000000;
+            }
+
             if (number > 9999999 && number <= 99999999)
             {
                 int temp = (int)(number / 10000000);

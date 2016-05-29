@@ -297,5 +297,23 @@ namespace NumberToTextConversionTests
             Assert.AreEqual("Nine crore ninety nine lakhs ninety nine thousand nine hundred ninety nine", numberInText);
         }
 
+        [TestMethod]
+        public void NumberToText_100000000()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(100000000);
+
+            Assert.AreEqual("Ten crore", numberInText);
+        }
+
+        [TestMethod]
+        public void NumberToText_999999999()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(999999999);
+
+            Assert.AreEqual("Ninety nine crore ninety nine lakhs ninety nine thousand nine hundred ninety nine", numberInText);
+        }
+
     }
 }
