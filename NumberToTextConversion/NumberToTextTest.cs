@@ -460,5 +460,40 @@ namespace NumberToTextConversionTests
             Assert.AreEqual("Nine trillion nine hundred ninety nine billion ninety nine crore ninety nine lakhs ninety nine thousand nine hundred ninety nine", numberInText);
         }
 
+        [TestMethod]
+        public void NumberToText_10000000000000()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(10000000000000);
+
+            Assert.AreEqual("Ten trillion", numberInText);
+        }
+
+        [TestMethod]
+        public void NumberToText_99999999999999()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(99999999999999);
+
+            Assert.AreEqual("Ninety nine trillion nine hundred ninety nine billion ninety nine crore ninety nine lakhs ninety nine thousand nine hundred ninety nine", numberInText);
+        }
+
+        [TestMethod]
+        public void NumberToText_100000000000000()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(100000000000000);
+
+            Assert.AreEqual("One hundred trillion", numberInText);
+        }
+
+        [TestMethod]
+        public void NumberToText_1000000000000000()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(1000000000000000);
+
+            Assert.AreEqual("One thousand trillion", numberInText);
+        }
     }
 }
