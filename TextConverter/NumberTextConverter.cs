@@ -57,24 +57,33 @@ namespace NumberTextConverters
         {
             string numberText = string.Empty;
 
+            if (number > 9999 && number <= 99999)
+            {
+                int temp = (int)(number / 1000);
+                numberText += ConvertToWord(temp) + " thousand ";
+                number = number % 1000;
+            }
+
             if (number > 999 && number <= 9999)
             {
                 int temp = (int)number / 1000;
-                numberText += oneDigitText[temp] + " Thousand ";
+                var caseNumber = (numberText.Length == 0 ? oneDigitText[temp] : oneDigitText[temp].ToLower());
+                numberText += caseNumber + " thousand ";
                 number = number % 1000;
             }
 
             if (number > 99 && number <= 999)
             {
                 int temp = (int)number / 100;
-                numberText += oneDigitText[temp] + " Hundred ";
+                var caseNumber = (numberText.Length == 0 ? oneDigitText[temp] : oneDigitText[temp].ToLower());
+                numberText += caseNumber + " hundred ";
                 number = number % 100;
             }
 
             if (number>=20 && number <= 99)
             {
                 int temp = (int)number / 10;
-                numberText += twoDigitText[temp] + " ";
+                numberText += (numberText.Length == 0 ? twoDigitText[temp] : twoDigitText[temp].ToLower()) + " ";
                 number = number % 10;
             }
 
@@ -82,7 +91,7 @@ namespace NumberTextConverters
             {
                 if (number >= 0 && number < 20)
                 {
-                    numberText += oneDigitText[(int)number];
+                    numberText += (numberText.Length == 0 ? oneDigitText[(int)number] : oneDigitText[(int)number].ToLower());
                 }
             }
             

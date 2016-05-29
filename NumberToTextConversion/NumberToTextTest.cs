@@ -67,7 +67,7 @@ namespace NumberToTextConversionTests
             NumberTextConverter converter = new NumberTextConverter();
             string numberInText = converter.ConvertToText(21);
 
-            Assert.AreEqual("Twenty One", numberInText);
+            Assert.AreEqual("Twenty one", numberInText);
         }
 
         [TestMethod]
@@ -76,7 +76,7 @@ namespace NumberToTextConversionTests
             NumberTextConverter converter = new NumberTextConverter();
             string numberInText = converter.ConvertToText(29);
 
-            Assert.AreEqual("Twenty Nine", numberInText);
+            Assert.AreEqual("Twenty nine", numberInText);
         }
 
         [TestMethod]
@@ -94,7 +94,7 @@ namespace NumberToTextConversionTests
             NumberTextConverter converter = new NumberTextConverter();
             string numberInText = converter.ConvertToText(31);
 
-            Assert.AreEqual("Thirty One", numberInText);
+            Assert.AreEqual("Thirty one", numberInText);
         }
 
         [TestMethod]
@@ -103,7 +103,7 @@ namespace NumberToTextConversionTests
             NumberTextConverter converter = new NumberTextConverter();
             string numberInText = converter.ConvertToText(99);
 
-            Assert.AreEqual("Ninety Nine", numberInText);
+            Assert.AreEqual("Ninety nine", numberInText);
         }
 
         [TestMethod]
@@ -112,7 +112,7 @@ namespace NumberToTextConversionTests
             NumberTextConverter converter = new NumberTextConverter();
             string numberInText = converter.ConvertToText(100);
 
-            Assert.AreEqual("One Hundred", numberInText);
+            Assert.AreEqual("One hundred", numberInText);
         }
 
         [TestMethod]
@@ -121,7 +121,7 @@ namespace NumberToTextConversionTests
             NumberTextConverter converter = new NumberTextConverter();
             string numberInText = converter.ConvertToText(101);
 
-            Assert.AreEqual("One Hundred One", numberInText);
+            Assert.AreEqual("One hundred one", numberInText);
         }
 
         [TestMethod]
@@ -130,7 +130,7 @@ namespace NumberToTextConversionTests
             NumberTextConverter converter = new NumberTextConverter();
             string numberInText = converter.ConvertToText(999);
 
-            Assert.AreEqual("Nine Hundred Ninety Nine", numberInText);
+            Assert.AreEqual("Nine hundred ninety nine", numberInText);
         }
 
         [TestMethod]
@@ -139,7 +139,7 @@ namespace NumberToTextConversionTests
             NumberTextConverter converter = new NumberTextConverter();
             string numberInText = converter.ConvertToText(1000);
 
-            Assert.AreEqual("One Thousand", numberInText);
+            Assert.AreEqual("One thousand", numberInText);
         }
 
         [TestMethod]
@@ -148,7 +148,7 @@ namespace NumberToTextConversionTests
             NumberTextConverter converter = new NumberTextConverter();
             string numberInText = converter.ConvertToText(1001);
 
-            Assert.AreEqual("One Thousand One", numberInText);
+            Assert.AreEqual("One thousand one", numberInText);
         }
 
         [TestMethod]
@@ -157,7 +157,44 @@ namespace NumberToTextConversionTests
             NumberTextConverter converter = new NumberTextConverter();
             string numberInText = converter.ConvertToText(9999);
 
-            Assert.AreEqual("Nine Thousand Nine Hundred Ninety Nine", numberInText);
+            Assert.AreEqual("Nine thousand nine hundred ninety nine", numberInText);
+        }
+
+
+        [TestMethod]
+        public void NumberToText_10000()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(10000);
+
+            Assert.AreEqual("Ten thousand", numberInText);
+        }
+
+        [TestMethod]
+        public void NumberToText_10001()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(10001);
+
+            Assert.AreEqual("Ten thousand one", numberInText);
+        }
+
+        [TestMethod]
+        public void NumberToText_99999()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(99999);
+
+            Assert.AreEqual("Ninety nine thousand nine hundred ninety nine", numberInText);
+        }
+
+        [TestMethod]
+        public void NumberToText_2523()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(2523);
+
+            Assert.AreEqual("Two thousand five hundred twenty three", numberInText);
         }
 
     }
