@@ -10,6 +10,8 @@ namespace NumberTextConverters
     {
         static  Dictionary<int, string> oneDigitText = new Dictionary<int, string>();
         static Dictionary<int, string> twoDigitText = new Dictionary<int, string>();
+        static Dictionary<CurrencyType, string> currencyRealNumberText = new Dictionary<CurrencyType, string>();
+        static Dictionary<CurrencyType, string> currencyPrecisionNumberText = new Dictionary<CurrencyType, string>();
 
         static NumberTextConverter()
         {
@@ -43,6 +45,11 @@ namespace NumberTextConverters
             twoDigitText.Add(8, "Eighty");
             twoDigitText.Add(9, "Ninety");
 
+            currencyRealNumberText.Add(CurrencyType.Dollar, "Dollar");
+            currencyRealNumberText.Add(CurrencyType.Rupee, "Rupees");
+
+            currencyPrecisionNumberText.Add(CurrencyType.Dollar, "Cent");
+            currencyPrecisionNumberText.Add(CurrencyType.Rupee, "Paisa");
         }
 
         public string ConvertToText(long longNumber)
@@ -53,14 +60,16 @@ namespace NumberTextConverters
             return ConvertToWord(longNumber);
         }
 
-        public string CurrencyInWord(decimal number)
+        public string CurrencyInWord(decimal number, CurrencyType currencyType = CurrencyType.Rupee)
         {
             if (number == 0)
                 return oneDigitText[0];
             var parts = number.ToString().Split('.');
             var word = string.Empty;
 
-            word = ConvertToWord(Convert.ToInt64(parts[0])).Trim() + " rupees " + (parts.Length == 2 ? ("and " + ConvertToWord(Convert.ToInt64(parts[1].Substring(0,2))).ToLower().Trim() + " paisa") : "");
+            var realPart = ConvertToWord(Convert.ToInt64(parts[0])).Trim() + " " + currencyRealNumberText[currencyType].ToLower();
+            var precisionPart = (parts.Length == 2 ? ("and " + ConvertToWord(Convert.ToInt64(parts[1].Substring(0, 2))).ToLower().Trim() + " " + currencyPrecisionNumberText[currencyType].ToLower()) : "");
+            word = realPart + " " + precisionPart;
 
             return word.Trim();
         }

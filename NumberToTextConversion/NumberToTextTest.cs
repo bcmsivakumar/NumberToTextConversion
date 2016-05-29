@@ -540,5 +540,14 @@ namespace NumberToTextConversionTests
 
             Assert.AreEqual("Zero", numberInText);
         }
+
+        [TestMethod]
+        public void NumberToText_CurrencyType_Dollar_100()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.CurrencyInWord(100M, CurrencyType.Dollar);
+
+            Assert.AreEqual("One hundred dollar", numberInText);
+        }
     }
 }
