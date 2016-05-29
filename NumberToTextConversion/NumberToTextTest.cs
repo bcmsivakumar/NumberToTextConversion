@@ -315,5 +315,24 @@ namespace NumberToTextConversionTests
             Assert.AreEqual("Ninety nine crore ninety nine lakhs ninety nine thousand nine hundred ninety nine", numberInText);
         }
 
+
+        [TestMethod]
+        public void NumberToText_1000000000()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(1000000000);
+
+            Assert.AreEqual("One billion", numberInText);
+        }
+
+        [TestMethod]
+        public void NumberToText_10000000000()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(10000000000);
+
+            Assert.AreEqual("Ten billion", numberInText);
+        }
+
     }
 }

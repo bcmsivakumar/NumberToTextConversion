@@ -57,6 +57,22 @@ namespace NumberTextConverters
         {
             string numberText = string.Empty;
 
+
+            if (number > 999999999 && number <= 99999999999)
+            {
+                int temp = (int)(number / 1000000000);
+                if (temp > 19)
+                {
+                    numberText += ConvertToWord(temp, numberText.Length != 0) + " billion ";
+                }
+                else
+                {
+                    var caseNumber = (numberText.Length == 0 ? oneDigitText[temp] : oneDigitText[temp].ToLower());
+                    numberText += caseNumber + " billion ";
+                }
+                number = (int)(number % 1000000000);
+            }
+
             if (number > 99999999 && number <= 999999999)
             {
                 int temp = (int)(number / 10000000);
