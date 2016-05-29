@@ -53,14 +53,21 @@ namespace NumberTextConverters
             return ConvertToWord(longNumber);
         }
 
-        public string ConvertToWord(long number)
+        public string ConvertToWord(long number, bool isRecursive=false)
         {
             string numberText = string.Empty;
+
+            if (number > 99999 && number <= 999999)
+            {
+                int temp = (int)(number / 100000);
+                numberText += ConvertToWord(temp, numberText.Length != 0) + (temp == 1 ? " lakh " : " lakhs ");
+                number = number % 100000;
+            }
 
             if (number > 9999 && number <= 99999)
             {
                 int temp = (int)(number / 1000);
-                numberText += ConvertToWord(temp) + " thousand ";
+                numberText += ConvertToWord(temp, numberText.Length != 0) + " thousand ";
                 number = number % 1000;
             }
 
@@ -68,6 +75,10 @@ namespace NumberTextConverters
             {
                 int temp = (int)number / 1000;
                 var caseNumber = (numberText.Length == 0 ? oneDigitText[temp] : oneDigitText[temp].ToLower());
+                if (isRecursive)
+                {
+                    caseNumber = caseNumber.ToLower();
+                }
                 numberText += caseNumber + " thousand ";
                 number = number % 1000;
             }
@@ -76,6 +87,10 @@ namespace NumberTextConverters
             {
                 int temp = (int)number / 100;
                 var caseNumber = (numberText.Length == 0 ? oneDigitText[temp] : oneDigitText[temp].ToLower());
+                if (isRecursive)
+                {
+                    caseNumber = caseNumber.ToLower();
+                }
                 numberText += caseNumber + " hundred ";
                 number = number % 100;
             }
@@ -83,7 +98,16 @@ namespace NumberTextConverters
             if (number>=20 && number <= 99)
             {
                 int temp = (int)number / 10;
-                numberText += (numberText.Length == 0 ? twoDigitText[temp] : twoDigitText[temp].ToLower()) + " ";
+                var caseNumber = numberText.Length == 0 ? twoDigitText[temp] : twoDigitText[temp].ToLower();
+                if(isRecursive)
+                {
+                    caseNumber = caseNumber.ToLower();
+                }
+                numberText += (caseNumber) + " ";
+                if (isRecursive)
+                {
+                    numberText = numberText.ToLower();
+                }
                 number = number % 10;
             }
 
