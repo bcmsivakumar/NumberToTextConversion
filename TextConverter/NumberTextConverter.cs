@@ -58,7 +58,7 @@ namespace NumberTextConverters
             string numberText = string.Empty;
 
 
-            if (number > 999999999 && number <= 99999999999)
+            if (number > 999999999 && number <= 999999999999)
             {
                 int temp = (int)(number / 1000000000);
                 if (temp > 19)

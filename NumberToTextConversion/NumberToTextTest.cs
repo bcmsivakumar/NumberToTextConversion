@@ -334,5 +334,113 @@ namespace NumberToTextConversionTests
             Assert.AreEqual("Ten billion", numberInText);
         }
 
+        [TestMethod]
+        public void NumberToText_99000000000()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(99000000000);
+
+            Assert.AreEqual("Ninety nine billion", numberInText);
+        }
+
+        [TestMethod]
+        public void NumberToText_99900000000()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(99900000000);
+
+            Assert.AreEqual("Ninety nine billion ninety crore", numberInText);
+        }
+
+        [TestMethod]
+        public void NumberToText_99990000000()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(99990000000);
+
+            Assert.AreEqual("Ninety nine billion ninety nine crore", numberInText);
+        }
+
+        [TestMethod]
+        public void NumberToText_99999000000()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(99999000000);
+
+            Assert.AreEqual("Ninety nine billion ninety nine crore ninety lakhs", numberInText);
+        }
+
+        [TestMethod]
+        public void NumberToText_99999900000()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(99999900000);
+
+            Assert.AreEqual("Ninety nine billion ninety nine crore ninety nine lakhs", numberInText);
+        }
+
+        [TestMethod]
+        public void NumberToText_99999990000()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(99999990000);
+
+            Assert.AreEqual("Ninety nine billion ninety nine crore ninety nine lakhs ninety thousand", numberInText);
+        }
+
+        [TestMethod]
+        public void NumberToText_99999999000()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(99999999000);
+
+            Assert.AreEqual("Ninety nine billion ninety nine crore ninety nine lakhs ninety nine thousand", numberInText);
+        }
+
+        [TestMethod]
+        public void NumberToText_99999999900()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(99999999900);
+
+            Assert.AreEqual("Ninety nine billion ninety nine crore ninety nine lakhs ninety nine thousand nine hundred", numberInText);
+        }
+
+        [TestMethod]
+        public void NumberToText_99999999990()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(99999999990);
+
+            Assert.AreEqual("Ninety nine billion ninety nine crore ninety nine lakhs ninety nine thousand nine hundred ninety", numberInText);
+        }
+
+        [TestMethod]
+        public void NumberToText_99999999919()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(99999999919);
+
+            Assert.AreEqual("Ninety nine billion ninety nine crore ninety nine lakhs ninety nine thousand nine hundred nineteen", numberInText);
+        }
+
+        [TestMethod]
+        public void NumberToText_99999999999()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(99999999999);
+
+            Assert.AreEqual("Ninety nine billion ninety nine crore ninety nine lakhs ninety nine thousand nine hundred ninety nine", numberInText);
+        }
+
+        [TestMethod]
+        public void NumberToText_999999999999()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(999999999999);
+
+            Assert.AreEqual("Nine hundred ninety nine billion ninety nine crore ninety nine lakhs ninety nine thousand nine hundred ninety nine", numberInText);
+        }
+
     }
 }
