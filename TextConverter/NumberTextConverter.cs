@@ -57,6 +57,25 @@ namespace NumberTextConverters
         {
             string numberText = string.Empty;
 
+            if (number > 999999999999 && number <= 9999999999999999)
+            {
+                long temp = (long)(number / 1000000000000);
+
+                if (temp > 19)
+                {
+                    numberText += ConvertToWord(temp, numberText.Length != 0) + " trillion ";
+                }
+                else
+                {
+                    var caseNumber = (numberText.Length == 0 ? oneDigitText[(int)temp] : oneDigitText[(int)temp].ToLower());
+                    if (isRecursive)
+                    {
+                        caseNumber = caseNumber.ToLower();
+                    }
+                    numberText += caseNumber + " trillion ";
+                }
+                number = (number % 1000000000000);
+            }
 
             if (number > 999999999 && number <= 999999999999)
             {
@@ -68,6 +87,10 @@ namespace NumberTextConverters
                 else
                 {
                     var caseNumber = (numberText.Length == 0 ? oneDigitText[temp] : oneDigitText[temp].ToLower());
+                    if (isRecursive)
+                    {
+                        caseNumber = caseNumber.ToLower();
+                    }
                     numberText += caseNumber + " billion ";
                 }
                 number = (int)(number % 1000000000);
@@ -83,6 +106,10 @@ namespace NumberTextConverters
                 else
                 {
                     var caseNumber = (numberText.Length == 0 ? oneDigitText[temp] : oneDigitText[temp].ToLower());
+                    if (isRecursive)
+                    {
+                        caseNumber = caseNumber.ToLower();
+                    }
                     numberText += caseNumber + " crore ";
                 }
                 number = number % 10000000;
@@ -92,6 +119,10 @@ namespace NumberTextConverters
             {
                 int temp = (int)(number / 10000000);
                 var caseNumber = (numberText.Length == 0 ? oneDigitText[temp] : oneDigitText[temp].ToLower());
+                if (isRecursive)
+                {
+                    caseNumber = caseNumber.ToLower();
+                }
                 numberText += caseNumber + " crore ";
                 number = number % 10000000;
             }
@@ -99,7 +130,12 @@ namespace NumberTextConverters
             if (number > 999999 && number <= 9999999 && numberText == string.Empty)
             {
                 int temp = (int)(number / 1000000);
-                numberText += oneDigitText[temp] + " million ";
+                var caseNumber = (numberText.Length == 0 ? oneDigitText[temp] : oneDigitText[temp].ToLower());
+                if (isRecursive)
+                {
+                    caseNumber = caseNumber.ToLower();
+                }
+                numberText += caseNumber + " million ";
                 number = number % 1000000;
             }
             else
