@@ -270,5 +270,32 @@ namespace NumberToTextConversionTests
         }
 
 
+        [TestMethod]
+        public void NumberToText_10000000()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(10000000);
+
+            Assert.AreEqual("One crore", numberInText);
+        }
+
+        [TestMethod]
+        public void NumberToText_10000001()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(10000001);
+
+            Assert.AreEqual("One crore one", numberInText);
+        }
+
+        [TestMethod]
+        public void NumberToText_99999999()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(99999999);
+
+            Assert.AreEqual("Nine crore ninety nine lakhs ninety nine thousand nine hundred ninety nine", numberInText);
+        }
+
     }
 }
