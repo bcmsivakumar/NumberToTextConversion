@@ -107,12 +107,12 @@ namespace NumberToTextConversionTests
         }
 
         [TestMethod]
-        public void NumberToText_DoubleDigit_100()
+        public void NumberToText_100()
         {
             NumberTextConverter converter = new NumberTextConverter();
             string numberInText = converter.ConvertToText(100);
 
-            Assert.AreEqual("Hundred", numberInText);
+            Assert.AreEqual("One Hundred", numberInText);
         }
     }
 }
