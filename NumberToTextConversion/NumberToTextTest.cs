@@ -133,5 +133,32 @@ namespace NumberToTextConversionTests
             Assert.AreEqual("Nine Hundred Ninety Nine", numberInText);
         }
 
+        [TestMethod]
+        public void NumberToText_1000()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(1000);
+
+            Assert.AreEqual("One Thousand", numberInText);
+        }
+
+        [TestMethod]
+        public void NumberToText_1001()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(1001);
+
+            Assert.AreEqual("One Thousand One", numberInText);
+        }
+
+        [TestMethod]
+        public void NumberToText_9999()
+        {
+            NumberTextConverter converter = new NumberTextConverter();
+            string numberInText = converter.ConvertToText(9999);
+
+            Assert.AreEqual("Nine Thousand Nine Hundred Ninety Nine", numberInText);
+        }
+
     }
 }

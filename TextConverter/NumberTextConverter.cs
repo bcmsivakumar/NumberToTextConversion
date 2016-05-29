@@ -57,6 +57,13 @@ namespace NumberTextConverters
         {
             string numberText = string.Empty;
 
+            if (number > 999 && number <= 9999)
+            {
+                int temp = (int)number / 1000;
+                numberText += oneDigitText[temp] + " Thousand ";
+                number = number % 1000;
+            }
+
             if (number > 99 && number <= 999)
             {
                 int temp = (int)number / 100;
